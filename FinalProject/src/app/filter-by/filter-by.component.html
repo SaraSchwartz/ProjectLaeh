@@ -1,0 +1,17 @@
+<div class="center">
+    <button (click)="filterByScreenSettings=true" class="btn myBtn">מיין לפי הגדרות מסך</button>
+    <br>
+    <br>
+    <div [hidden]="!filterByScreenSettings">
+        <input type="number" min="10" placeholder="אורך מסך" #height>
+        <br>
+        <input type="number" min="10" placeholder="רוחב מסך" #width>
+        <br>
+        <div *ngFor="let c of color">
+            <li>{{c}}</li>
+        </div>
+        <br>
+        <button (click)="saveSettings(height,width)" class="btn myBtn">אישור</button>
+    </div>
+
+</div>

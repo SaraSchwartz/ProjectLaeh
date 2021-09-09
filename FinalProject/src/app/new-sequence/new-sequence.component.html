@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <app-choose-picture-and-animation *ngIf="choosePicture" style="float:left;padding:15px"></app-choose-picture-and-animation>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-5">
+                <app-screen-settings class="center" style="float:right;padding:15px" (onChoosePictures)="choosePicture=true;"  ></app-screen-settings>
+            </div>
+        
+    </div>
+</div>
+
+
+<!-- (OnEnablePictures)="disablePictures=true" -->

@@ -1,0 +1,31 @@
+.Active{
+background-color: black;
+}
+.notActive{
+background-color: white;
+}
+.lamp{
+height: 10px;
+width: 10px;
+border-radius:1000px;
+border: none;
+border-color: black;
+
+}
+.app-shape-main-div {
+    height: 500px;
+    width: 500px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    background:white;
+}
+.app-row {
+    display: inline-flex;
+}
+.w{
+background-color: #ff0000;
+background-color: #008000;
+background-color: #0000ff;
+background-color: #ffff00;
+background-color:#ffa500;
+}

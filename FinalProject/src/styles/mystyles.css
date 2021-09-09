@@ -1,0 +1,43 @@
+.notOk{
+    border-color:red;
+}
+.ok{
+    border-color:currentColor;
+}
+.center{
+    text-align: center;
+    align-content: center;
+}
+div{
+    color:blue;
+}
+h2{
+    font-family: "AdamGorry-Inline";
+}
+
+:host{
+    background-color: bisque;
+}
+.myBtn{
+    background-color: cornflowerblue;
+}
+
+.myPanel{
+    background-color: lightskyblue;
+}
+.myLetters{
+color:  blanchedalmond;
+}
+input{
+    text-align: center;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+.box{
+    border-color: black;
+    border-width: 20px;
+    height: 20px;
+    width: 50px;
+    border-radius: 10px;
+}
+

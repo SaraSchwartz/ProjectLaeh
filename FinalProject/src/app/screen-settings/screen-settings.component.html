@@ -1,0 +1,47 @@
+<div class="center">
+  <form (ngSubmit)="submitForm(submitSettings)" #submitSettings="ngForm" class="file">
+    <div *ngIf="showSettings">
+      <br>
+      <label>אורך</label>
+      <br>
+      <input type="number" name="height1" required min="10" [(ngModel)]="height" #height1="ngModel"
+        [ngClass]="{'notOk': height1.touched && height1.invalid ,'ok':height1.touched && !height1.invalid }">
+      <br>
+      <div *ngIf="height1.errors?.required&&(height1.dirty||height1.touched)" style="color:red">שדה חובה</div>
+      <br>
+      <label>רוחב</label>
+      <br>
+      <input type="number" name="width1" required min="10" [(ngModel)]="width" #width1="ngModel"
+        [ngClass]="{ 'notOk': width1.touched && width1.invalid , 'ok':width1.touched &&!width1.invalid } ">
+      <br>
+      <div *ngIf="width1.errors?.required&&(width1.dirty||width1.touched)" style="color:red">שדה חובה</div>
+      <br>
+      <br>
+      <div class="row">
+        <select multiple class="col-md-6">
+          <option *ngFor="let color of myColors | filterByChecked:{'isChecked':true}; let i=index" id="{{i}}"
+            [ngStyle]="{'background-color': color.value}" (click)="colorSelected(color)">{{color.name}}</option>
+        </select>
+        <select multiple class="col-md-6">
+
+          <option *ngFor="let color of myColors |filterByChecked:{'isChecked':false}; let i=index" id="{{i}}"
+            (click)="colorSelected(color)" [ngStyle]="{'background-color': color.value}">{{color.name}}</option>
+        </select>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div *ngIf="!showSettings" class="app-shape-main-div row">
+      <div *ngFor="let lampRow of lampsArray; let i=index" class="app-row">
+        <div *ngFor="let lamp of lampsArray[i]; let j=index" class="lamp col-md-1 offset-md-1" id="{{i}}.{{j}}"
+          (click)="changeIsactive(lamp)" [ngClass]="{'Active':lamp.IsActive,'notActive': !(lamp.IsActive)  }">
+          <br>
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="submitSettings.invalid||disable" class="btn myBtn">אישור</button>
+  </form>
+</div>
+<div *ngIf="i">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>

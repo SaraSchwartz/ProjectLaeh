@@ -1,0 +1,57 @@
+<div class="panel myPanel myLetters">
+    <div class="panel-heading">
+      <br>
+        <h2 class="panel-title center">our amaaaaaazing site</h2>
+        <br>
+    </div>
+  
+  </div>
+  <br>
+<h3 class="center">משתמש חדש</h3>
+
+<base href="">
+<div >
+    <form (ngSubmit)="submitForm(submitUser)" #submitUser="ngForm" class="center" >
+        <br>
+        <label>שם</label>
+        <br>
+        <input type="text" name="name" required maxlength="19" [(ngModel)]=newClient.Name #name="ngModel" [ngClass]="{'notOk': name.touched && name.invalid ,'ok':name.touched && !name.invalid }">
+        <br>
+        <div *ngIf="name.errors &&(name.dirty||name.touched)" style="color:red ">
+          <div [hidden]="!name.errors.required" style="color:red">שדה חובה</div>
+        </div>
+        <br>
+        <label>מייל</label>
+        <br>
+        <input type="email" email name="email" required [(ngModel)]=newClient.Email #email="ngModel" [ngClass]="{'notOk': email.touched && name.invalid ,'ok':email.touched && !email.invalid }">
+        <br>
+        <div *ngIf="email.errors &&(email.dirty||email.touched)" style="color:red ">
+          <div [hidden]="!email.errors.required" style="color:red">שדה חובה</div>
+          <div [hidden]="!email.errors.email" style="color:red">מייל אינו תקין</div>    
+        </div>
+        <br>
+        <label>סיסמא</label>
+        <br>
+        <input type="password" name="password" required minlength="5" maxlength="10" [(ngModel)]=newClient.Password #password="ngModel"
+          [ngClass]="{ 'notOk': password.touched && password.invalid , 'ok':password.touched &&!password.invalid } ">
+        <br>
+        <div *ngIf="password.errors &&(password.dirty||password.touched)" style="color:red ">
+          <div [hidden]="!password.errors.required" style="color:red">שדה חובה</div>
+          <div [hidden]="!password.errors.minlength||password.errors.required" style="color:red">על הסיסמא להכיל לפחות 5 תווים</div>
+        </div>
+        <br>
+        <label>אימות סיסמא</label>
+        <br>
+        <input type="password" name="passwordVerification" required  [(ngModel)]=passwordVerificationpv #passwordVerification="ngModel"
+          [ngClass]="{ 'notOk': (passwordVerification.touched||passwordVerification.dirty) && (passwordVerification.invalid ||!equals1()), 'ok':passwordVerification.touched &&!passwordVerification.invalid&&equals1() } ">
+        <br>
+        <div *ngIf="passwordVerification.errors &&(passwordVerification.dirty||passwordVerification.touched); else notEqual" style="color:red ">
+          <div [hidden]="!passwordVerification.errors.required" style="color:red">שדה חובה</div>
+        </div>
+        <ng-template #notEqual>
+          <div  *ngIf="(passwordVerification.dirty||passwordVerification.touched) && !equals1()" style="color:red ">אימות סיסמא אינו שווה לסיסמא</div>  
+        </ng-template> 
+        <br>
+        <button type="submit" [disabled]="submitUser.invalid"  class="btn myBtn">אישור</button>
+      </form>
+</div>

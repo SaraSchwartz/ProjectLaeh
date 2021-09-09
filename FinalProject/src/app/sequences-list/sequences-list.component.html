@@ -1,0 +1,19 @@
+<div class="center">
+    <h6>רשימת סדרות</h6>
+    <input type="text" [(ngModel)]="searchText" placeholder="חיפוש" class="center">
+    <br>
+    <div *ngIf="status=='shared'">
+        <br>
+        <ul class="list-group" *ngFor="let s of connectToServer.sharedSequences | filterByScreenSettings:{'width':mySettings.ScreenWidth ,'height':mySettings.ScreenLength }| filterByText:searchText ">
+            <li class="list-group-item list-item" (click)="showSelectedSequence(s)" appHighlight> {{s.Name}} </li>
+        </ul>
+    </div>
+
+    <div *ngIf="status=='my'">
+        <br>
+        <ul class="list-group" *ngFor="let s of connectToServer.mySequences |filterByText:searchText ">
+            <br>
+            <li class="list-group-item list-item" (click)="showSelectedSequence(s)" appHighlight> {{s.Name}} </li>
+        </ul>
+    </div>
+</div>

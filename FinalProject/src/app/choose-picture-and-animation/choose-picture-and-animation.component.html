@@ -1,0 +1,16 @@
+<input type="file" multiple (change)="detectFiles($event)">
+<br>
+<br>
+<app-setting-picture *ngIf="settingPicture" (onCloseSetting)="settingPicture=false" (onDeletePic)="deletePicture()"
+    (onShowPicture)="setAndShowPicture()" (onStopShowing)="show=false"></app-setting-picture>
+<br>
+<div *ngFor="let url of urls; let i=index">
+    <img [src]="url" class="rounded mb-3" width="100" (click)="setPicture(i)">
+    <select class="form-control" #animation (change)="animationSelected(i,animation.value)">
+        <option *ngFor="let anim of keys()" [value]="anim">{{anim}}</option>
+    </select>
+    <br>
+</div>
+<button (click)="setAndShowSequence();">הצג סדרה</button>
+<app-showing-picture *ngIf="show" [outPut]="currentOutPut" [lamps]="lamps" [pictureIndex]="PicIndex"  [animationIndex]="animIndex"></app-showing-picture>
+<button (click)="onSaveSeqence()">שמור</button>

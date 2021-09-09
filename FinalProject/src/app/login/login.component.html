@@ -1,0 +1,41 @@
+<div class="panel myPanel myLetters">
+  <div class="panel-heading">
+    <br>
+      <h2 class="panel-title center">our amaaaaaazing site</h2>
+      <br>
+  </div>
+
+</div>
+<br><br><br><br><br>
+<h3 class="center">כניסה</h3>
+
+<base href="">
+<div class="center">
+<form (ngSubmit)="submitForm(submitUser)" #submitUser="ngForm"  class="file" >
+  <br>
+  <label>שם</label>
+  <br>
+  <input type="text" name="name" required maxlength="19" [(ngModel)]=myClient.Name #name="ngModel" [ngClass]="{'notOk': name.touched && name.invalid ,'ok':name.touched && !name.invalid }">
+  <br>
+  <div *ngIf="name.errors &&(name.dirty||name.touched)" style="color:red ">
+    <div [hidden]="!name.errors.required" style="color:red">שדה חובה</div>
+  </div>
+  <br>
+  <label>סיסמא</label>
+  <br>
+  <input type="password" name="password" appValidPass required minlength="5" maxlength="10" [(ngModel)]=myClient.Password #password="ngModel"
+    [ngClass]="{ 'notOk': password.touched && password.invalid , 'ok':password.touched &&!password.invalid } ">
+  <br>
+  <div *ngIf="password.errors &&(password.dirty||password.touched)" style="color:red ">
+      <div [hidden]="!password.errors.required" style="color:red">שדה חובה</div>
+      <div [hidden]="!password.errors.minlength||password.errors.required" style="color:red">על הסיסמא להכיל לפחות 5 תווים</div>
+  </div>
+  <br>
+
+  <button type="submit" [disabled]="submitUser.invalid || !Beforeclicked" class="btn myBtn">אישור</button>
+  <br>
+  <br>
+<a routerLink="addClient" routerLinkActive="active" >משתמש חדש</a>
+</form>
+
+</div>

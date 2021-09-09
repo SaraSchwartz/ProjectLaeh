@@ -1,0 +1,35 @@
+<br>
+<br>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-5 offset-md-3">
+            <app-comments class="center" [hidden]=!showSequence [mySequence]="selectedSequence"></app-comments>
+        </div>
+
+        <div class="col-md-4">
+            <app-filter-by (onSaveSettings)="filterBySettings($event)" style="float:right;padding:20px"></app-filter-by>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <app-sequences-list style="float:right;padding:26px" (onSelectedSequence)="showSelectedSequence($event)" [status]="'shared'"
+                [mySettings]="selectedSettings"></app-sequences-list>
+        </div>
+
+
+
+    </div>
+</div>
+<!-- <div class="row">
+        <app-comments [hidden]=!showSequence [mySequence]="selectedSequence" class="col-md-4 offset-md-4"></app-comments>
+    <div  class="col-md-4">
+            <app-filter-by (onSaveSettings)="filterBySettings($event)" ></app-filter-by>
+            <br>
+            <br>
+            <app-sequences-list (onSelectedSequence)="showSelectedSequence($event)" [status]="'shared'" [mySettings]="selectedSettings"></app-sequences-list>
+    </div> -->

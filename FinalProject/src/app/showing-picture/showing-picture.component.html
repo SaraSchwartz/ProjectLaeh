@@ -1,0 +1,43 @@
+
+
+
+<br>
+<br>
+<div *ngFor="let lampsArray of lamps ;let i=index;" class="app-row row">
+  <div *ngFor="let lamp of  lampsArray ;let j=index;"  class="lamp col-md-1" [ngClass]="{'isnotactive' : !(outPut[i][j].IsActive) ,'isactive' :outPut[i][j].IsActive}"
+  [ngStyle]="{'background-color': animationIndex<outPut[i][j].animations[pictureIndex] ? outPut[i][j].colorsArray[pictureIndex] : pictureIndex==0 ? 'black' : outPut[i][j].colorsArray[pictureIndex-1] }">
+  </div>
+  <br>
+</div>
+
+
+
+<div [ngStyle]="{'background-color': style1 ? 'red' : (style2 ? 'blue' : null) }"></div>
+<!-- לא צריך!!! -->
+<!-- <div *ngIf="||animationIndex=outPut[i][j].animations[pictureIndex]" id="{{i}}.{{j}}" class="lamp col-md-1" [ngClass]="{'isnotactive' : !(outPut[i][j].IsActive) ,'isactive' :outPut[i][j].IsActive}"
+  [ngStyle]="{'background-color':outPut[i][j].colorsArray[pictureIndex]}"></div> -->
+<!-- בעיה עם הראשון בסדרה -->
+<!-- <div *ngIf="animationIndex>outPut[i][j].animations[pictureIndex]" id="{{i}}.{{j}}" class="lamp col-md-1" [ngClass]="{'isnotactive' : !(outPut[i][j].IsActive) ,'isactive' :outPut[i][j].IsActive}"
+  [ngStyle]="{'background-color':outPut[i][j].colorsArray[pictureIndex-1]}"></div> -->
+
+
+  <!-- <div class="row">
+  <div multiple class="col-md-6">
+  </div>
+  <div multiple class="col-md-6">
+  </div>
+  <div class="app-shape-main-div row">
+    <div *ngFor="let colors of outPut[0][0].colorsArray let k=index">
+      <div *ngFor="let lampRow of outPut; let i=index" class="app-row">
+        <div *ngFor="let lamp of outPut[i]; let j=index" class="lamp col-md-1 offset-md-1" id="{{i}}.{{j}}"
+          [ngClass]="{'Active':lamp.isActive,'notActive': !(lamp.isActive)}"
+          [ngStyle]="{'background-color':lamp.colorsArray[k].value}">
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+
+
+</div> -->
+<!-- value={{lamps[i][j].myColors[currentShowPictures].color}} -->
